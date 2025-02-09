@@ -1,33 +1,45 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
+  standalone: true,
   selector: 'app-login',
-  imports: [FormsModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'],
+  imports: [FormsModule, RouterLink, HttpClientModule] // ✅ Import HttpClientModule
 })
 export class LoginComponent {
-
+  api_url: string = 'https://b42-web-067-scripting-stars.onrender.com/user/login';
+  
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) 
-  {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  login()
-  {
-    console.log('Email: ' + this.email + ' Password: ' + this.password);
-    if(this.email == 'admin' && this.password == 'admin')
-    {
-      this.router.navigate(['/community']);
-    }
-    else
-    {
-      alert('Invalid credentials');
-    }
+  login() {
+    const userData = {
+      email: this.email,
+      password: this.password
+    };
+
+    this.http.post(this.api_url, userData)
+      .subscribe({
+        next: (response: any) => {
+          console.log('Login successful', response);
+          alert('Login successful! Redirecting...');
+          
+          // Store token in local storage
+          localStorage.setItem('token', response.token);
+          
+          // Redirect to community page after login
+          this.router.navigate(['/community']);
+        },
+        error: (error) => {
+          console.error('Login failed', error);
+          alert('Invalid email or password. Please try again.');
+        }
+      });
   }
-
-
 }
