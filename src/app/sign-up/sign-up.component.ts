@@ -1,33 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { RouterLink } from '@angular/router';
-import { Route } from '@angular/router';
+import { Router } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  
-  selector: 'app-sign-up',
-  imports: [RouterLink, FormsModule],
+  standalone: true,
+  selector: 'app-signup',
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css'
+  styleUrls: ['./sign-up.component.css'],
+  imports: [FormsModule, HttpClientModule] // ✅ Import HttpClientModule
 })
 export class SignUpComponent {
-
-  name: string = '';
+  username: string = '';
   email: string = '';
   password: string = '';
 
-  signup()
-  {
-    console.log('Name: ' + this.name + ' Email: ' + this.email + ' Password: ' + this.password);
-    alert('Account created successfully');
+  constructor(private http: HttpClient, private router: Router) {}
 
-  // naviagtre to login 
+  signup() {
+    const userData = {
+      username: this.username,
+      email: this.email,
+      password: this.password
+    };
 
-
-
-    
-    
+    this.http.post('https://b42-web-067-scripting-stars.onrender.com/user/signup', userData)
+      .subscribe({
+        next: (response) => {
+          console.log('Signup successful', response);
+          alert('Signup successful! Redirecting to login...');
+          this.router.navigate(['/login']); // Redirect to login page
+        },
+        error: (error) => {
+          console.error('Signup failed', error);
+          alert('Signup failed. Please try again.');
+        }
+      });
   }
-
 }
