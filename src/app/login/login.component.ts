@@ -18,6 +18,7 @@ export class LoginComponent {
 
   login()
   {
+    console.log('Email: ' + this.email + ' Password: ' + this.password);
     if(this.email == 'admin' && this.password == 'admin')
     {
       this.router.navigate(['/community']);
