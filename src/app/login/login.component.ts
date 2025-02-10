@@ -28,7 +28,7 @@ export class LoginComponent {
       .subscribe({
         next: (response: any) => {
           console.log('Login successful', response);
-          alert('Login successful! Redirecting...');
+          // alert('Login successful! Redirecting...');
           
           // Store token in local storage
           localStorage.setItem('token', response.token);

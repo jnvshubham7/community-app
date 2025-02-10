@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-community-card',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule], // Standalone needs CommonModule for built-in directives
   templateUrl: './community-card.component.html',
-  styleUrl: './community-card.component.css'
+  styleUrls: ['./community-card.component.css'] // Fix typo
 })
 export class CommunityCardComponent {
-
+  @Input() community: any;
 }

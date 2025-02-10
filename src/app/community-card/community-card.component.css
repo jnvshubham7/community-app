@@ -1,0 +1,19 @@
+.community-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    h3 {
+      margin: 0;
+      color: #007bff;
+    }
+    p {
+      color: #555;
+    }
+    span {
+      font-size: 14px;
+      color: #777;
+    }
+  }
+  

@@ -1,1 +1,8 @@
-<p>community works!</p>
+<div class="community-container">
+    <h2>Communities</h2>
+    <button class="create-btn">Create Community</button>
+    <div class="community-list">
+      <app-community-card *ngFor="let community of communities" [community]="community"></app-community-card>
+    </div>
+  </div>
+  
