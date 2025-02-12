@@ -11,7 +11,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [FormsModule, RouterLink, HttpClientModule] // ✅ Import HttpClientModule
 })
 export class LoginComponent {
-  api_url: string = 'http://localhost:8080/api/auth/login';
+  api_url: string = 'https://b42-web-067-scripting-stars.onrender.com/user/login';
+
   
   email: string = '';
   password: string = '';

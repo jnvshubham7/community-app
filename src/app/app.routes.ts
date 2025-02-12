@@ -6,6 +6,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { CommunityCardComponent } from './community-card/community-card.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -18,7 +19,8 @@ export const routes: Routes = [
     {path: 'community', component: CommunityComponent},
     {path: 'signup', component: SignUpComponent},
     {path: 'community-card', component: CommunityCardComponent},
-    {path: 'change-password', component: ChangePasswordComponent}
+    {path: 'change-password', component: ChangePasswordComponent},
+    { path: 'reset-password', component: ResetPasswordComponent },
 
 
 
