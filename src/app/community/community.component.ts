@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-community',
   standalone: true,
-  imports: [CommonModule, CommunityCardComponent, HttpClientModule], // Ensure standalone usage
+  imports: [CommonModule, HttpClientModule], // Ensure standalone usage
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.css'] // Fix typo
 })
