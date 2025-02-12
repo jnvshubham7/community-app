@@ -11,7 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [FormsModule, RouterLink, HttpClientModule] // ✅ Import HttpClientModule
 })
 export class LoginComponent {
-  api_url: string = 'https://b42-web-067-scripting-stars.onrender.com/user/login';
+  api_url: string = 'http://localhost:8080/api/auth/login';
 
   
   email: string = '';
@@ -25,7 +25,7 @@ export class LoginComponent {
       password: this.password
     };
 
-    this.http.post(this.api_url, userData)
+    this.http.post(this.api_url, userData, {responseType: 'text'})
       .subscribe({
         next: (response: any) => {
           console.log('Login successful', response);

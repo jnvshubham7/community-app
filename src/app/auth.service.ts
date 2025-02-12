@@ -6,7 +6,7 @@ import { catchError, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://b42-web-067-scripting-stars.onrender.com/user';
+  private apiUrl = 'http://localhost:8080/api/auth/';
 
   constructor(private http: HttpClient) {}
 
