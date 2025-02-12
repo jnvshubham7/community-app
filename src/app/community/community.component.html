@@ -1,5 +1,3 @@
-<div *ngFor="let community of communities" class="community-card">
-    <h2>{{ community.name }}</h2>
-    <p>{{ community.description }}</p>
-    <p>Members: {{ community.members }}</p>
-  </div>
+<div class="parent-container">
+  <app-community-card *ngFor="let community of communities" [community]="community"></app-community-card>
+</div>
