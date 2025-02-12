@@ -1,8 +1,5 @@
-<div class="community-container">
-    <h2>Communities</h2>
-    <button class="create-btn">Create Community</button>
-    <div class="community-list">
-        <app-community-card *ngFor="let comm of communities" [community]="comm"></app-community-card>
-    </div>
+<div *ngFor="let community of communities" class="community-card">
+    <h2>{{ community.name }}</h2>
+    <p>{{ community.description }}</p>
+    <p>Members: {{ community.members }}</p>
   </div>
-  
