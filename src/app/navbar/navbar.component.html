@@ -4,15 +4,14 @@
       <li class="dropdown">
         <!-- menu icon -->
         <a href="javascript:void(0)" class="dropbtn">Menu</a>
-        
-        
+
         <div class="dropdown-content">
           <a routerLink="/community">Community</a>
           <a routerLink="/login">Login</a>
-          <a routerLink="/logout">Logout</a>
           <a routerLink="/forgot-password">Forgot Password</a>
           <a routerLink="/signup">Sign Up</a>
           <a routerLink="/change-password">Change Password</a>
+          <a href="javascript:void(0)" (click)="logout()">Logout</a>
         </div>
       </li>
     </ul>

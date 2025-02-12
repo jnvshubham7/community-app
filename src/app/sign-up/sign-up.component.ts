@@ -24,7 +24,7 @@ export class SignUpComponent {
       password: this.password
     };
 
-    this.http.post('https://b42-web-067-scripting-stars.onrender.com/user/signup', userData)
+    this.http.post('http://localhost:8080/api/auth/signup', userData)
       .subscribe({
         next: (response) => {
           console.log('Signup successful', response);
