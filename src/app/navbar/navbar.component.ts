@@ -31,15 +31,26 @@ throw new Error('Method not implemented.');
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.post(this.logoutUrl, {}, { headers }).subscribe({
-      next: () => {
+
+    console.log("headers", headers);
+
+    console.log('Headers sent:', headers.get('Authorization'));
+
+
+
+    this.http.post(this.logoutUrl, {}, { headers, responseType: 'text' }).subscribe({
+      next: (response) => {
+        console.log('Logout Response:', response); // Log the plain text response
         localStorage.removeItem('token');
         alert('Logout successful! Redirecting to login...');
         this.router.navigate(['/login']);
       },
       error: (error) => {
-        alert(`Error: ${error.error.message || 'Logout failed'}`);
+        console.error('Logout Error:', error);
+        alert(`Error: ${error.message || 'Logout failed'}`);
       }
     });
+    
+    
   }
 }
