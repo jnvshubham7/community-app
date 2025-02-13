@@ -32,7 +32,9 @@ export class LoginComponent {
           // alert('Login successful! Redirecting...');
           
           // Store token in local storage
-          localStorage.setItem('token', response.token);
+          localStorage.setItem('token', response);
+          console.log('Token stored', response);
+
           
           // Redirect to community page after login
           this.router.navigate(['/community']);

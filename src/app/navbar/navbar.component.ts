@@ -15,12 +15,13 @@ export class NavbarComponent {
 navigateTo(arg0: string) {
 throw new Error('Method not implemented.');
 }
-  private logoutUrl = 'https://b42-web-067-scripting-stars.onrender.com/user/logout';
+  private logoutUrl = 'http://localhost:8080/api/password/logout';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   logout() {
     const token = localStorage.getItem('token');
+    console.log("token", token);
 
     if (!token) {
       alert('No token found. Redirecting to login...');

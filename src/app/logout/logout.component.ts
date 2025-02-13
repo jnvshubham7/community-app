@@ -8,10 +8,6 @@ import { Component } from '@angular/core';
 })
 export class LogoutComponent {
 
-  logout() {
-    localStorage.removeItem('token');
-    alert('Logout successful! Redirecting to login...');
-    window.location.href = '/login'; // Redirect to login page
-  }
+
 
 }
