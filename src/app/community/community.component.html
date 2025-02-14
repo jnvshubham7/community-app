@@ -1,3 +1,8 @@
 <div class="parent-container">
-  <app-community-card *ngFor="let community of communities" [community]="community"></app-community-card>
+  <app-community-card *ngFor="let community of communities" [community]="community"
+
+  (joingCommunityEvent)="onJoinCommunity($event)"
+  
+  ></app-community-card>
+  
 </div>

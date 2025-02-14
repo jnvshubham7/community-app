@@ -48,4 +48,22 @@ export class CommunityComponent {
         }
       );
     }
+
+    onJoinCommunity(communityId :string) : void{
+      this.communityService.joinCommunity(communityId, 'user123').subscribe(
+        (response) => 
+        {
+          console.log('Joined community:', response);
+          this.fetchCommunities();
+        },
+        (error) => 
+        {
+          console.error('Error joining community:', error);
+        }
+      )
+
+    }
+
+
+
   }

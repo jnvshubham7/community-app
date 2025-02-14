@@ -29,7 +29,10 @@ export class CommunityService {
     return this.http.post<Community>(this.apiUrl, community);
   }
 
-  joinCommunity(id: string, userId: string): Observable<Community> {
-    return this.http.post<Community>(`${this.apiUrl}/${id}/join`, { userId });
+  
+  joinCommunity(communityId: string, userId: string): Observable<Community> {
+    return this.http.post<Community>(`${this.apiUrl}/${communityId}/join?userId=${userId}`, {});
   }
+  
+  
 }
