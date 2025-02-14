@@ -8,7 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [FormsModule, RouterLink, HttpClientModule] // ✅ Import HttpClientModule
+  imports: [FormsModule, RouterLink, HttpClientModule] 
 })
 export class LoginComponent {
   api_url: string = 'http://localhost:8080/api/auth/login';

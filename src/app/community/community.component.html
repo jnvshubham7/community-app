@@ -1,8 +1,22 @@
+<div class = "create-comm">
+
+  <button class="create-comm-button" (click)="createCommunity()"  > Create Community</button>
+
+
+</div>
+
+
 <div class="parent-container">
+
+
+
+
   <app-community-card *ngFor="let community of communities" [community]="community"
 
   (joingCommunityEvent)="onJoinCommunity($event)"
   
   ></app-community-card>
+
+
   
 </div>

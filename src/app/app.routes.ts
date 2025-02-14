@@ -7,6 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { CommunityCardComponent } from './community-card/community-card.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -16,9 +17,8 @@ export const routes: Routes = [
     {path: 'login', component:LoginComponent},
     {path: 'forgot-password', component:ForgotPasswordComponent },
     {path: 'logout', component: LogoutComponent},
-    {path: 'community', component: CommunityComponent},
+    {path: 'community', component: CommunityComponent, canActivate: [AuthGuard]},
     {path: 'signup', component: SignUpComponent},
-    {path: 'community-card', component: CommunityCardComponent},
     {path: 'change-password', component: ChangePasswordComponent},
     { path: 'reset-password', component: ResetPasswordComponent },
 

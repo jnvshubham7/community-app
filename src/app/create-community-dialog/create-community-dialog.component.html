@@ -1,0 +1,20 @@
+<div class="dialog-box">
+
+
+
+<h2>Create Community</h2>
+<div class="dialog-content">
+  <label>Name:</label>
+  <input [(ngModel)]="communityName" placeholder="Enter community name" />
+
+  <label>Description:</label>
+  <textarea [(ngModel)]="communityDescription" placeholder="Enter description"></textarea>
+</div>
+
+<div class="dialog-actions">
+  <button class="cancel-btn" mat-button (click)="closeDialog()">Cancel</button>
+  <button class="create-btn" mat-button color="primary" (click)="createCommunity()">Create</button>
+</div>
+
+</div>
+

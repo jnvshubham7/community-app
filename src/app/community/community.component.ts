@@ -5,6 +5,8 @@ import { Community } from './community.model';
 import { CommunityService } from './community.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateCommunityDialogComponent } from '../create-community-dialog/create-community-dialog.component';
 
 @Component({
   selector: 'app-community',
@@ -16,23 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 export class CommunityComponent {
-  // communities = [
-  //   { name: 'Angular Devs', description: 'A community for Angular developers', members: 1200 },
-  //   { name: 'Java Spring Boot', description: 'Backend developers community', members: 900 },
-  //   { name: 'React Developers', description: 'Building powerful UIs with React', members: 1500 },
-  //   { name: 'AI & Machine Learning', description: 'Exploring AI, ML, and Data Science', members: 1800 },
-  //   { name: 'Full Stack Developers', description: 'End-to-end development discussions', members: 1300 },
-  //   { name: 'Cloud Computing', description: 'AWS, Azure, and Google Cloud experts', members: 1000 },
-  //   { name: 'Cybersecurity', description: 'Discussing security, hacking, and encryption', members: 1100 },
-  //   { name: 'Flutter & Dart', description: 'Building cross-platform apps with Flutter', members: 1400 },
-  //   { name: 'DevOps & CI/CD', description: 'Automation, Kubernetes, Docker, and more', members: 1250 },
-  //   { name: 'Python Enthusiasts', description: 'All about Python programming and frameworks', members: 2000 },
-  //   { name: 'Data Structures & Algorithms', description: 'DSA discussions and problem-solving', members: 1600 },
-  //   { name: 'Blockchain & Web3', description: 'Decentralized apps and smart contracts', members: 950 }
-  // ];
+
     communities: Community[] = [];
   
-    constructor(private communityService: CommunityService) {}
+    constructor(private communityService: CommunityService, private dialog : MatDialog ) {}
   
     ngOnInit(): void {
       this.fetchCommunities();
@@ -62,6 +51,20 @@ export class CommunityComponent {
         }
       )
 
+    }
+
+    createCommunity(): void {
+      const dialogRef = this.dialog.open(CreateCommunityDialogComponent, {
+        // width: '600px'
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.communityService.createCommunity(result).subscribe(() => {
+            this.fetchCommunities();
+          });
+        }
+      });
     }
 
 
